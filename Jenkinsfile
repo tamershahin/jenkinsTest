@@ -5,7 +5,7 @@ pipeline {
       steps {
         parallel(
           "Download Deps": {
-            sh '''curl -o img.jpg https://s3.eu-west-2.amazonaws.com/tamer-resources/images/lo-zoo-di-105.png
+            sh '''curl -o img.png https://s3.eu-west-2.amazonaws.com/tamer-resources/images/lo-zoo-di-105.png
  
 
 '''
@@ -20,7 +20,9 @@ pipeline {
     }
     stage('copy files') {
       steps {
-        sh 'mv img.jpg grails-app/assets/images/grails_logo.png '
+        sh '''ls -larth grails-app/assets/images/
+mv img.png grails-app/assets/images/grails_logo.png 
+ls -larth grails-app/assets/images/'''
       }
     }
     stage('build') {
