@@ -18,18 +18,14 @@ pipeline {
         )
       }
     }
-    stage('Build app') {
+    stage('copy files') {
       steps {
-        parallel(
-          "Build app": {
-            sh './gradlew clean :assemble'
-            
-          },
-          "add files": {
-            sh 'mv img.jpg grails-app/assets/images/grails_logo.png '
-            
-          }
-        )
+        sh 'mv img.jpg grails-app/assets/images/grails_logo.png '
+      }
+    }
+    stage('build') {
+      steps {
+        sh './gradlew clean :assemble'
       }
     }
   }
