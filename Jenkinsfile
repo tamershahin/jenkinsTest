@@ -32,7 +32,7 @@ ls -larth grails-app/assets/images/'''
     }
     stage('Run') {
       steps {
-        sh './gradlew bootRuna-Dgrails.server.port=8099 -Dgrails.env=development'
+        sh './gradlew bootRun -Dgrails.server.port=8099 -Dgrails.env=development'
       }
     }
   }
