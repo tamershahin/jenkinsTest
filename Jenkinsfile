@@ -3,8 +3,9 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh '''curl https://s3.eu-west-2.amazonaws.com/tamer-resources/images/lo-zoo-di-105.png
-./gradlew clean :app:assemble 
+        sh '''curl -o img.jpg https://s3.eu-west-2.amazonaws.com/tamer-resources/images/lo-zoo-di-105.png
+ 
+
 '''
       }
     }
