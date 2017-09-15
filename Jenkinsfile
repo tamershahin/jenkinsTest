@@ -30,5 +30,10 @@ ls -larth grails-app/assets/images/'''
         sh './gradlew clean :assemble'
       }
     }
+    stage('Run') {
+      steps {
+        sh './gradlew bootRuna-Dgrails.server.port=8099 -Dgrails.env=development'
+      }
+    }
   }
 }
