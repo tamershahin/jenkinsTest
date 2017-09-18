@@ -7,9 +7,11 @@ pipeline {
           "Download Deps": {
             sh '''curl -o img.png https://s3.eu-west-2.amazonaws.com/tamer-resources/images/lo-zoo-di-105.png
             '''
+            
           },
           "set up db": {
             sh 'echo "setting up db"'
+            
           }
         )
       }
@@ -25,11 +27,6 @@ pipeline {
     stage('build') {
       steps {
         sh './gradlew clean :assemble'
-      }
-    }
-    stage('Run') {
-      steps {
-        sh './gradlew bootRun -Dgrails.server.port=8099 -Dgrails.env=development'
       }
     }
   }
