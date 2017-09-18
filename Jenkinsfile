@@ -11,9 +11,6 @@ pipeline {
           "set up db": {
             sh 'echo "setting up db"'
           }
-           "set up aws": {
-                      sh 'echo "setting up aws cli"'
-                    }
         )
       }
     }
