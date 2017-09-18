@@ -33,12 +33,19 @@ pipeline {
         sh './gradlew clean :assemble'
       }
     }
-
     stage('Sanity check') {
-                steps {
-                    input "Does the staging environment look ok?"
-                }
-            }
-
+      steps {
+        parallel(
+          "Sanity check": {
+            input 'Does the staging environment look ok?'
+            
+          },
+          "store artifact": {
+            archiveArtifacts(artifacts: 'test.jar', onlyIfSuccessful: true)
+            
+          }
+        )
+      }
+    }
   }
 }
