@@ -41,7 +41,7 @@ pipeline {
             
           },
           "store artifact": {
-            archiveArtifacts(artifacts: 'test.jar', onlyIfSuccessful: true)
+            archiveArtifacts(artifacts: 'build/libs/jenkinsTest-0.1.jar', onlyIfSuccessful: true)
             
           }
         )
